@@ -8,12 +8,14 @@
     <Button
         android:id="@+id/btnKotlin"
         android:layout_width="match_parent"
+        android:textAllCaps="false"
         android:layout_height="wrap_content"
         android:text="Kotlin" />
 
     <Button
         android:id="@+id/btnJava"
         android:layout_width="match_parent"
+        android:textAllCaps="false"
         android:layout_height="wrap_content"
-        android:text="JAVA" />
+        android:text="Java" />
 </LinearLayout>

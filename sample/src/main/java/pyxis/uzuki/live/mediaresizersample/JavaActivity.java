@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.widget.TextView;
 
 import java.io.File;
+import java.util.Arrays;
 
 import pyxis.uzuki.live.mediaresizer.MediaResizer;
 import pyxis.uzuki.live.mediaresizer.ResizeOption;
@@ -72,7 +73,7 @@ public class JavaActivity extends InjectActivity {
         String realPath = RichUtils.getRealPath(Uri.parse(path), this);
 
         if (type == MediaType.VIDEO) {
-            processVideo(realPath);
+            selectVideoStrategy(realPath);
         } else {
             processImage(realPath);
         }
@@ -98,7 +99,29 @@ public class JavaActivity extends InjectActivity {
         MediaResizer.process(option);
     }
 
-    private void processVideo(String path) {
+    private void selectVideoStrategy(String path) {
+        String[] arrays = new String[]{"480P", "720P", "960x540 (not supported in devices)"};
+        RichUtils.selector(this, Arrays.asList(arrays), (dialog, item, position) -> {
+            VideoResolutionType type;
+            switch (position) {
+                case 0:
+                    type = VideoResolutionType.AS480;
+                    break;
+                default:
+                case 1:
+                    type = VideoResolutionType.AS720;
+                    break;
+                case 2:
+                    type = VideoResolutionType.AS960;
+                    break;
+            }
+
+            processVideo(path, type);
+            dialog.dismiss();
+        });
+    }
+
+    private void processVideo(String path, VideoResolutionType type) {
         File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/MediaResizer/");
         file.mkdirs();
 
@@ -106,7 +129,7 @@ public class JavaActivity extends InjectActivity {
         DialogInterface progress = RichUtils.progress(this, "Encoding...");
 
         VideoResizeOption resizeOption = new VideoResizeOption.Builder()
-                .setVideoResolutionType(VideoResolutionType.AS480)
+                .setVideoResolutionType(type)
                 .build();
 
         ResizeOption option = new ResizeOption.Builder()

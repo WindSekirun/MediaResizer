@@ -11,7 +11,7 @@ import net.ypresto.androidtranscoder.format.MediaFormatStrategy
 
 /**
  * MediaResizer
- * Class: FormatStrategy
+ * Class: AS960Strategy
  * Created by Pyxis on 2017-11-23.
  *
  * Description:

@@ -43,7 +43,7 @@ class KotlinActivity : AppCompatActivity() {
         val realPath = path.toUri() getRealPath this
 
         if (type == MediaType.VIDEO) {
-            processVideo(realPath)
+            selectVideoStrategy(realPath)
         } else {
             processImage(realPath)
         }
@@ -69,14 +69,28 @@ class KotlinActivity : AppCompatActivity() {
         MediaResizer.process(option)
     }
 
-    private fun processVideo(path: String) {
+    private fun selectVideoStrategy(path: String) {
+        val lists = arrayListOf("480P", "720P", "960x540 (not supported in devices)")
+        selector(lists, { dialog, item, position ->
+            val type: VideoResolutionType = when (position) {
+                0 -> VideoResolutionType.AS480
+                1 -> VideoResolutionType.AS720
+                2 -> VideoResolutionType.AS960
+                else -> VideoResolutionType.AS720
+            }
+            processVideo(path, type)
+            dialog.dismiss()
+        })
+    }
+
+    private fun processVideo(path: String, type: VideoResolutionType) {
         val file = "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)}/MediaResizer/".toFile()
         file.mkdirs()
         val imageFile = File(file, "${System.currentTimeMillis().asDateString("yyyy-MM-dd HH:mm:ss")}.mp4")
         val progress = progress("Encoding...")
 
         val resizeOption = VideoResizeOption.Builder()
-                .setVideoResolutionType(VideoResolutionType.AS480)
+                .setVideoResolutionType(type)
                 .build()
 
         val option = ResizeOption.Builder()

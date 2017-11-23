@@ -86,9 +86,9 @@ object MediaResizer {
         val imageFile = option.outputPath.toFile()
 
         val newBitmap: Bitmap = if (rotated.width < rotated.height) {
-            resizeImage(rotated, 720, 1280)
+            resizeImage(rotated, option.imageResolution.second, option.imageResolution.first)
         } else {
-            resizeImage(rotated, 1280, 720)
+            resizeImage(rotated, option.imageResolution.first, option.imageResolution.second)
         }
 
         imageFile.saveBitmapToFile(newBitmap)

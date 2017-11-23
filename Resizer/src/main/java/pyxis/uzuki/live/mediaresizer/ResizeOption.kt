@@ -15,7 +15,7 @@ data class ResizeOption(val activity: Activity, val mediaType: MediaType, val vi
                         val imageResolution: Pair<Int, Int>, val targetPath: String,
                         val outputPath: String, val callback: (Int, String) -> Unit) {
 
-    class Builder {
+    class Builder() {
         var activity: Activity? = null
         var mediaType: MediaType = MediaType.IMAGE
         var videoResolutionType: VideoResolutionType = VideoResolutionType.P480

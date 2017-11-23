@@ -113,7 +113,7 @@ MediaResizer.process(option);
 ```
 
 ### Sample
-You can use sample of MediaResizer, [APK is here]((https://github.com/WindSekirun/MediaResizer/blob/master/sample-debug.apk))
+You can use sample of MediaResizer, [APK is here]((https://github.com/WindSekirun/MediaResizer/raw/master/sample-debug.apk))
 
 ### Third-party libraries
 MediaResizer use Third-parth libraries for development.

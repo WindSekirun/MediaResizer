@@ -1,4 +1,4 @@
-package pyxis.uzuki.live.mediaresizersample;
+package pyxis.uzuki.live.mediaresizersample.activity;
 
 import android.content.DialogInterface;
 import android.net.Uri;
@@ -11,10 +11,12 @@ import java.io.File;
 import java.util.Arrays;
 
 import pyxis.uzuki.live.mediaresizer.MediaResizer;
-import pyxis.uzuki.live.mediaresizer.ResizeOption;
-import pyxis.uzuki.live.mediaresizer.VideoResizeOption;
+import pyxis.uzuki.live.mediaresizer.data.ResizeOption;
+import pyxis.uzuki.live.mediaresizer.data.VideoResizeOption;
 import pyxis.uzuki.live.mediaresizer.model.MediaType;
 import pyxis.uzuki.live.mediaresizer.model.VideoResolutionType;
+import pyxis.uzuki.live.mediaresizersample.R;
+import pyxis.uzuki.live.mediaresizersample.utils.ResultBuilder;
 import pyxis.uzuki.live.pyxinjector.annotation.BindView;
 import pyxis.uzuki.live.pyxinjector.annotation.OnClick;
 import pyxis.uzuki.live.pyxinjector.base.InjectActivity;

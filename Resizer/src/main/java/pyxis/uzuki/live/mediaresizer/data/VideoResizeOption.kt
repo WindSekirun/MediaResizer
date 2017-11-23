@@ -1,4 +1,4 @@
-package pyxis.uzuki.live.mediaresizer
+package pyxis.uzuki.live.mediaresizer.data
 
 import net.ypresto.androidtranscoder.format.MediaFormatStrategy
 import pyxis.uzuki.live.mediaresizer.model.VideoResolutionType

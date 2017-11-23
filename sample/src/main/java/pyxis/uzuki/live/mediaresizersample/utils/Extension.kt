@@ -1,4 +1,4 @@
-package pyxis.uzuki.live.mediaresizersample
+package pyxis.uzuki.live.mediaresizersample.utils
 
 import android.media.MediaMetadataRetriever
 import android.net.Uri

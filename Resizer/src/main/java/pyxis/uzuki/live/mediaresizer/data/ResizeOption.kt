@@ -1,4 +1,4 @@
-package pyxis.uzuki.live.mediaresizer
+package pyxis.uzuki.live.mediaresizer.data
 
 import pyxis.uzuki.live.mediaresizer.model.MediaType
 import pyxis.uzuki.live.richutilskt.impl.F2

@@ -1,7 +1,7 @@
 @file:JvmName("ResultBuilder")
 @file:JvmMultifileClass
 
-package pyxis.uzuki.live.mediaresizersample
+package pyxis.uzuki.live.mediaresizersample.utils
 
 import pyxis.uzuki.live.richutilskt.utils.getImageHeight
 import pyxis.uzuki.live.richutilskt.utils.getImageWidth

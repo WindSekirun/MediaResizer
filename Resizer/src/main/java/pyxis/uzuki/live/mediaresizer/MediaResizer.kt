@@ -4,6 +4,8 @@ import android.graphics.Bitmap
 import android.util.Log
 import net.ypresto.androidtranscoder.MediaTranscoder
 import net.ypresto.androidtranscoder.format.MediaFormatStrategy
+import pyxis.uzuki.live.mediaresizer.data.ResizeOption
+import pyxis.uzuki.live.mediaresizer.data.VideoResizeOption
 import pyxis.uzuki.live.mediaresizer.model.MediaType
 import pyxis.uzuki.live.mediaresizer.model.VideoResolutionType
 import pyxis.uzuki.live.mediaresizer.strategy.AS480Strategy

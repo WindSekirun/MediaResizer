@@ -1,10 +1,11 @@
-package pyxis.uzuki.live.mediaresizersample
+package pyxis.uzuki.live.mediaresizersample.activity
 
 import android.Manifest
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import pyxis.uzuki.live.mediaresizersample.R
 import pyxis.uzuki.live.richutilskt.utils.RPermission
 
 class MainActivity : AppCompatActivity() {

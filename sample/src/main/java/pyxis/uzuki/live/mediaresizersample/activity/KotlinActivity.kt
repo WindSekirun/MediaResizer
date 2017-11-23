@@ -1,14 +1,18 @@
-package pyxis.uzuki.live.mediaresizersample
+package pyxis.uzuki.live.mediaresizersample.activity
 
 import android.os.Bundle
 import android.os.Environment
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_demo.*
 import pyxis.uzuki.live.mediaresizer.MediaResizer
-import pyxis.uzuki.live.mediaresizer.ResizeOption
-import pyxis.uzuki.live.mediaresizer.VideoResizeOption
+import pyxis.uzuki.live.mediaresizer.data.ResizeOption
+import pyxis.uzuki.live.mediaresizer.data.VideoResizeOption
 import pyxis.uzuki.live.mediaresizer.model.MediaType
 import pyxis.uzuki.live.mediaresizer.model.VideoResolutionType
+import pyxis.uzuki.live.mediaresizersample.R
+import pyxis.uzuki.live.mediaresizersample.utils.displayImageResult
+import pyxis.uzuki.live.mediaresizersample.utils.displayVideoResult
+import pyxis.uzuki.live.mediaresizersample.utils.toUri
 import pyxis.uzuki.live.richutilskt.utils.*
 import java.io.File
 

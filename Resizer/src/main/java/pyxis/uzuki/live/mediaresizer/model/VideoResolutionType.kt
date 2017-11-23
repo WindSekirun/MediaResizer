@@ -8,5 +8,5 @@ package pyxis.uzuki.live.mediaresizer.model
  * Description:
  */
 enum class VideoResolutionType {
-    P480, P720
+    AS480, AS720, AS960, CUSTOM
 }

@@ -49,7 +49,8 @@ fun Long.toNumInUnits(): String {
         u++
         bytes = bytes shr 10
     }
-    if (bytes > 1024)
+    if (bytes > 1024) {
         u++
+    }
     return String.format("%.1f %cB", bytes / 1024f, " kMGTPE"[u])
 }

@@ -3,10 +3,12 @@ package pyxis.uzuki.live.mediaresizer
 import android.graphics.Bitmap
 import android.util.Log
 import net.ypresto.androidtranscoder.MediaTranscoder
+import net.ypresto.androidtranscoder.format.MediaFormatStrategy
 import pyxis.uzuki.live.mediaresizer.model.MediaType
 import pyxis.uzuki.live.mediaresizer.model.VideoResolutionType
-import pyxis.uzuki.live.mediaresizer.strategy.P480Strategy
-import pyxis.uzuki.live.mediaresizer.strategy.P720Strategy
+import pyxis.uzuki.live.mediaresizer.strategy.AS480Strategy
+import pyxis.uzuki.live.mediaresizer.strategy.AS720Strategy
+import pyxis.uzuki.live.mediaresizer.strategy.AS960Strategy
 import pyxis.uzuki.live.richutilskt.utils.*
 import java.io.FileDescriptor
 import java.io.FileInputStream
@@ -41,10 +43,7 @@ object MediaResizer {
     private fun resizeVideo(option: ResizeOption) {
         val descriptor = getFileDescriptor(option.targetPath)
         val resizeOption = option.videoResizeOption
-        val strategy = if (resizeOption.resolutionType == VideoResolutionType.P480)
-            P480Strategy(resizeOption.videoBitrate, resizeOption.audioBitrate, resizeOption.audioChannel)
-        else
-            P720Strategy(resizeOption.videoBitrate, resizeOption.audioBitrate, resizeOption.audioChannel)
+        val strategy = getTranscodingStrategy(resizeOption)
 
         val file = option.outputPath.toFile()
 
@@ -86,6 +85,18 @@ object MediaResizer {
             null
         }
     }
+
+    private fun getTranscodingStrategy(resizeOption: VideoResizeOption): MediaFormatStrategy =
+            when (resizeOption.resolutionType) {
+                VideoResolutionType.AS480 ->
+                    AS480Strategy(resizeOption.videoBitrate, resizeOption.audioBitrate, resizeOption.audioChannel)
+                VideoResolutionType.AS720 ->
+                    AS720Strategy(resizeOption.videoBitrate, resizeOption.audioBitrate, resizeOption.audioChannel)
+                VideoResolutionType.AS960 ->
+                    AS960Strategy(resizeOption.audioBitrate, resizeOption.audioChannel)
+                VideoResolutionType.CUSTOM ->
+                    resizeOption.customStrategy ?: AS720Strategy(resizeOption.videoBitrate, resizeOption.audioBitrate, resizeOption.audioChannel)
+            }
 
     private fun resizeImage(option: ResizeOption) {
         val bitmap = option.targetPath.getBitmap() as Bitmap

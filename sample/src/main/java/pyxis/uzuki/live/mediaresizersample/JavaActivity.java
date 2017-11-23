@@ -106,7 +106,7 @@ public class JavaActivity extends InjectActivity {
         DialogInterface progress = RichUtils.progress(this, "Encoding...");
 
         VideoResizeOption resizeOption = new VideoResizeOption.Builder()
-                .setVideoResolutionType(VideoResolutionType.P480)
+                .setVideoResolutionType(VideoResolutionType.AS480)
                 .build();
 
         ResizeOption option = new ResizeOption.Builder()

@@ -35,7 +35,6 @@ class KotlinActivity : AppCompatActivity() {
         }
     }
 
-
     private fun resultProcess(code: Int, path: String, type: MediaType) {
         if (code == RPickMedia.PICK_FAILED) {
             return
@@ -77,7 +76,7 @@ class KotlinActivity : AppCompatActivity() {
         val progress = progress("Encoding...")
 
         val resizeOption = VideoResizeOption.Builder()
-                .setVideoResolutionType(VideoResolutionType.P480)
+                .setVideoResolutionType(VideoResolutionType.AS480)
                 .build()
 
         val option = ResizeOption.Builder()

@@ -1,6 +1,7 @@
-## MediaResizer
+## MediaResizer [![](https://jitpack.io/v/WindSekirun/MediaResizer.svg)](https://jitpack.io/#WindSekirun/MediaResizer)
+[![Kotlin](https://img.shields.io/badge/kotlin-1.1.5-blue.svg)](http://kotlinlang.org)	[![GitHub license](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)](http://www.apache.org/licenses/LICENSE-2.0)
 
-MediaSizer is helper class for resizeing image / video with very small effort written in Kotlin.
+Resizeing image / video with *very small effort* written in **Kotlin**.
 
 Minimum API Level is 18(Android 4.3)
 
@@ -12,8 +13,8 @@ It support...
     * Encoding in 480p
     * Encoding in 960x540
     * Can be set value of Bitrate of Video, Bitrate of Audio, Channel of Audio
-* Resizing media with pre-made builder pattern
-* 100% Java Interop Library, it can use with Java within Kotlin-plugin integrated project
+* Resizing media with pre-well-made builder
+* **100% Java Interop Library**, it can use with Java within Kotlin-plugin integrated project
 
 ### Usages
 **NOT PRODUCTION READY**
@@ -113,7 +114,7 @@ MediaResizer.process(option);
 ```
 
 ### Sample
-You can use sample of MediaResizer, [APK is here]((https://github.com/WindSekirun/MediaResizer/raw/master/sample-debug.apk))
+You can use sample of MediaResizer, [APK is here](https://github.com/WindSekirun/MediaResizer/raw/master/sample-debug.apk)
 
 ### Third-party libraries
 MediaResizer use Third-parth libraries for development.

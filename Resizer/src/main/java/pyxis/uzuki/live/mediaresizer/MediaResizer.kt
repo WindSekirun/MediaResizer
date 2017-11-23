@@ -25,11 +25,17 @@ object MediaResizer {
     const val RESIZE_SUCCESS = 1
     const val RESIZE_FAILED = -1
 
+    @JvmStatic
     fun process(option: ResizeOption) {
         when (option.mediaType) {
             MediaType.IMAGE -> resizeImage(option)
             MediaType.VIDEO -> resizeVideo(option)
         }
+    }
+
+    private fun ResizeOption.executeCallback(isSuccess: Boolean, path: String) {
+        val code = if (isSuccess) RESIZE_SUCCESS else RESIZE_FAILED
+        runOnUiThread { callback(code, path) }
     }
 
     private fun resizeVideo(option: ResizeOption) {
@@ -45,7 +51,7 @@ object MediaResizer {
             file.createNewFile()
         } catch (e: IOException) {
             Log.d(MediaResizer.javaClass.simpleName, "Resizer failed: %s".format(e.message ?: ""))
-            option.callback(RESIZE_FAILED, "")
+            option.executeCallback(false, option.targetPath)
         }
 
         MediaTranscoder.getInstance().transcodeVideo(descriptor, option.outputPath, strategy, object : MediaTranscoder.Listener {
@@ -54,16 +60,16 @@ object MediaResizer {
             }
 
             override fun onTranscodeCanceled() {
-                option.callback(RESIZE_FAILED, option.targetPath)
+                option.executeCallback(false, option.targetPath)
             }
 
             override fun onTranscodeFailed(exception: Exception?) {
                 Log.d(MediaResizer.javaClass.simpleName, "Resizer failed: %s".format(exception?.message ?: ""))
-                option.callback(RESIZE_FAILED, option.targetPath)
+                option.executeCallback(false, option.targetPath)
             }
 
             override fun onTranscodeCompleted() {
-                option.callback(RESIZE_SUCCESS, option.outputPath)
+                option.executeCallback(true, option.outputPath)
             }
         })
     }
@@ -93,7 +99,7 @@ object MediaResizer {
 
         imageFile.saveBitmapToFile(newBitmap)
 
-        runDelayed({ option.callback(RESIZE_SUCCESS, imageFile.absolutePath) }, 500)
+        runDelayed({ option.executeCallback(true, imageFile.absolutePath) }, 500)
     }
 
     private fun resizeImage(image: Bitmap, maxWidth: Int, maxHeight: Int): Bitmap {

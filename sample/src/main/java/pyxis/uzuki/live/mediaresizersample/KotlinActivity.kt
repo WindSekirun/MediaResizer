@@ -62,10 +62,8 @@ class KotlinActivity : AppCompatActivity() {
                 .setTargetPath(path)
                 .setOutputPath(imageFile.absolutePath)
                 .setCallback({ code, output ->
-                    runOnUiThread {
-                        txtStatus.text = displayImageResult(code, path, output)
-                        progress.dismiss()
-                    }
+                    txtStatus.text = displayImageResult(code, path, output)
+                    progress.dismiss()
                 })
                 .build()
 
@@ -85,10 +83,8 @@ class KotlinActivity : AppCompatActivity() {
                 .setTargetPath(path)
                 .setOutputPath(imageFile.absolutePath)
                 .setCallback({ code, output ->
-                    runOnUiThread {
-                        txtStatus.text = displayVideoResult(code, path, output)
-                        progress.dismiss()
-                    }
+                    txtStatus.text = displayVideoResult(code, path, output)
+                    progress.dismiss()
                 })
                 .build()
 

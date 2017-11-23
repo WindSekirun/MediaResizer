@@ -3,6 +3,7 @@ package pyxis.uzuki.live.mediaresizer
 import android.app.Activity
 import pyxis.uzuki.live.mediaresizer.model.MediaType
 import pyxis.uzuki.live.mediaresizer.model.VideoResolutionType
+import pyxis.uzuki.live.richutilskt.impl.F2
 
 /**
  * MediaResizer
@@ -16,13 +17,13 @@ data class ResizeOption(val activity: Activity, val mediaType: MediaType, val vi
                         val outputPath: String, val callback: (Int, String) -> Unit) {
 
     class Builder() {
-        var activity: Activity? = null
-        var mediaType: MediaType = MediaType.IMAGE
-        var videoResolutionType: VideoResolutionType = VideoResolutionType.P480
-        var imageResolution: Pair<Int, Int> = 1280 to 720
-        var outputPath: String = ""
-        var targetPath: String = ""
-        var callback: (Int, String) -> Unit = { _, _ -> }
+        private var activity: Activity? = null
+        private var mediaType: MediaType = MediaType.IMAGE
+        private var videoResolutionType: VideoResolutionType = VideoResolutionType.P480
+        private var imageResolution: Pair<Int, Int> = 1280 to 720
+        private var outputPath: String = ""
+        private var targetPath: String = ""
+        private var callback: (Int, String) -> Unit = { _, _ -> }
 
         fun setActivity(activity: Activity): Builder {
             this.activity = activity
@@ -58,6 +59,12 @@ data class ResizeOption(val activity: Activity, val mediaType: MediaType, val vi
             this.callback = callback
             return this
         }
+
+        fun setCallback(callback: F2<Int, String>): Builder {
+            this.callback = { int, string -> callback.invoke(int, string) }
+            return this
+        }
+
 
         fun build(): ResizeOption =
                 ResizeOption(activity as Activity, mediaType, videoResolutionType, imageResolution, targetPath, outputPath, callback)

@@ -54,12 +54,12 @@ object MediaResizer {
             }
 
             override fun onTranscodeCanceled() {
-                option.callback(RESIZE_FAILED, "")
+                option.callback(RESIZE_FAILED, option.targetPath)
             }
 
             override fun onTranscodeFailed(exception: Exception?) {
                 Log.d(MediaResizer.javaClass.simpleName, "Resizer failed: %s".format(exception?.message ?: ""))
-                option.callback(RESIZE_FAILED, "")
+                option.callback(RESIZE_FAILED, option.targetPath)
             }
 
             override fun onTranscodeCompleted() {

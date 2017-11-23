@@ -8,10 +8,7 @@ import pyxis.uzuki.live.mediaresizer.MediaResizer
 import pyxis.uzuki.live.mediaresizer.ResizeOption
 import pyxis.uzuki.live.mediaresizer.model.MediaType
 import pyxis.uzuki.live.mediaresizer.model.VideoResolutionType
-import pyxis.uzuki.live.richutilskt.utils.RPickMedia
-import pyxis.uzuki.live.richutilskt.utils.asDateString
-import pyxis.uzuki.live.richutilskt.utils.getRealPath
-import pyxis.uzuki.live.richutilskt.utils.toFile
+import pyxis.uzuki.live.richutilskt.utils.*
 import java.io.File
 
 class KotlinActivity : AppCompatActivity() {
@@ -56,6 +53,7 @@ class KotlinActivity : AppCompatActivity() {
         val file = "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)}/resize/".toFile()
         file.mkdirs()
         val imageFile = File(file, "${System.currentTimeMillis().asDateString("yyyy-MM-dd HH:mm:ss")}.jpg")
+        val progress = progress("Encoding...")
 
         val option = ResizeOption.Builder()
                 .setActivity(this)
@@ -64,7 +62,10 @@ class KotlinActivity : AppCompatActivity() {
                 .setTargetPath(path)
                 .setOutputPath(imageFile.absolutePath)
                 .setCallback({ code, output ->
-                    txtStatus.text = displayImageResult(code, path, output)
+                    runOnUiThread {
+                        txtStatus.text = displayImageResult(code, path, output)
+                        progress.dismiss()
+                    }
                 })
                 .build()
 
@@ -75,6 +76,7 @@ class KotlinActivity : AppCompatActivity() {
         val file = "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)}/resize/".toFile()
         file.mkdirs()
         val imageFile = File(file, "${System.currentTimeMillis().asDateString("yyyy-MM-dd HH:mm:ss")}.mp4")
+        val progress = progress("Encoding...")
 
         val option = ResizeOption.Builder()
                 .setActivity(this)
@@ -83,7 +85,10 @@ class KotlinActivity : AppCompatActivity() {
                 .setTargetPath(path)
                 .setOutputPath(imageFile.absolutePath)
                 .setCallback({ code, output ->
-                    txtStatus.text = displayVideoResult(code, path, output)
+                    runOnUiThread {
+                        txtStatus.text = displayVideoResult(code, path, output)
+                        progress.dismiss()
+                    }
                 })
                 .build()
 

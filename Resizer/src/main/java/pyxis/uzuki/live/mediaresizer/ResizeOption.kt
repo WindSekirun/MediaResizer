@@ -1,8 +1,6 @@
 package pyxis.uzuki.live.mediaresizer
 
-import android.app.Activity
 import pyxis.uzuki.live.mediaresizer.model.MediaType
-import pyxis.uzuki.live.mediaresizer.model.VideoResolutionType
 import pyxis.uzuki.live.richutilskt.impl.F2
 
 /**
@@ -12,31 +10,25 @@ import pyxis.uzuki.live.richutilskt.impl.F2
  *
  * Description:
  */
-data class ResizeOption(val activity: Activity, val mediaType: MediaType, val videoResolutionType: VideoResolutionType,
+data class ResizeOption(val mediaType: MediaType, val videoResizeOption: VideoResizeOption,
                         val imageResolution: Pair<Int, Int>, val targetPath: String,
                         val outputPath: String, val callback: (Int, String) -> Unit) {
 
-    class Builder() {
-        private var activity: Activity? = null
+    class Builder {
         private var mediaType: MediaType = MediaType.IMAGE
-        private var videoResolutionType: VideoResolutionType = VideoResolutionType.P480
+        private var videoResizeOption: VideoResizeOption? = null
         private var imageResolution: Pair<Int, Int> = 1280 to 720
         private var outputPath: String = ""
         private var targetPath: String = ""
         private var callback: (Int, String) -> Unit = { _, _ -> }
-
-        fun setActivity(activity: Activity): Builder {
-            this.activity = activity
-            return this
-        }
 
         fun setMediaType(mediaType: MediaType): Builder {
             this.mediaType = mediaType
             return this
         }
 
-        fun setVideoResolutionType(videoResolutionType: VideoResolutionType): Builder {
-            this.videoResolutionType = videoResolutionType
+        fun setVideoResizeOption(videoResizeOption: VideoResizeOption): Builder {
+            this.videoResizeOption = videoResizeOption
             return this
         }
 
@@ -65,8 +57,7 @@ data class ResizeOption(val activity: Activity, val mediaType: MediaType, val vi
             return this
         }
 
-
         fun build(): ResizeOption =
-                ResizeOption(activity as Activity, mediaType, videoResolutionType, imageResolution, targetPath, outputPath, callback)
+                ResizeOption(mediaType, videoResizeOption as VideoResizeOption, imageResolution, targetPath, outputPath, callback)
     }
 }

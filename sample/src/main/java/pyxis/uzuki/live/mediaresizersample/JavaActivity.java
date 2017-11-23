@@ -11,6 +11,7 @@ import java.io.File;
 
 import pyxis.uzuki.live.mediaresizer.MediaResizer;
 import pyxis.uzuki.live.mediaresizer.ResizeOption;
+import pyxis.uzuki.live.mediaresizer.VideoResizeOption;
 import pyxis.uzuki.live.mediaresizer.model.MediaType;
 import pyxis.uzuki.live.mediaresizer.model.VideoResolutionType;
 import pyxis.uzuki.live.pyxinjector.annotation.BindView;
@@ -78,17 +79,17 @@ public class JavaActivity extends InjectActivity {
     }
 
     private void processImage(String path) {
-        File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/MediaResizer/",
-                RichUtils.asDateString(System.currentTimeMillis(), "yyyy-MM-dd HH:mm:ss") + ".jpg");
-        file.mkdir();
+        File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/MediaResizer/");
+        file.mkdirs();
+
+        File imageFile = new File(file, RichUtils.asDateString(System.currentTimeMillis(), "yyyy-MM-dd HH:mm:ss") + ".jpg");
         DialogInterface progress = RichUtils.progress(this, "Encoding...");
 
         ResizeOption option = new ResizeOption.Builder()
-                .setActivity(this)
-                .setImageResolution(1280, 720)
                 .setMediaType(MediaType.IMAGE)
+                .setImageResolution(1280, 720)
                 .setTargetPath(path)
-                .setOutputPath(file.getAbsolutePath())
+                .setOutputPath(imageFile.getAbsolutePath())
                 .setCallback((code, output) -> {
                     txtStatus.setText(ResultBuilder.displayImageResult(code, path, output));
                     progress.dismiss();
@@ -98,17 +99,21 @@ public class JavaActivity extends InjectActivity {
     }
 
     private void processVideo(String path) {
-        File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/MediaResizer/",
-                RichUtils.asDateString(System.currentTimeMillis(), "yyyy-MM-dd HH:mm:ss") + ".mp4");
-        file.mkdir();
+        File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/MediaResizer/");
+        file.mkdirs();
+
+        File imageFile = new File(file, RichUtils.asDateString(System.currentTimeMillis(), "yyyy-MM-dd HH:mm:ss") + ".mp4");
         DialogInterface progress = RichUtils.progress(this, "Encoding...");
 
-        ResizeOption option = new ResizeOption.Builder()
-                .setActivity(this)
+        VideoResizeOption resizeOption = new VideoResizeOption.Builder()
                 .setVideoResolutionType(VideoResolutionType.P480)
+                .build();
+
+        ResizeOption option = new ResizeOption.Builder()
                 .setMediaType(MediaType.VIDEO)
+                .setVideoResizeOption(resizeOption)
                 .setTargetPath(path)
-                .setOutputPath(file.getAbsolutePath())
+                .setOutputPath(imageFile.getAbsolutePath())
                 .setCallback((code, output) -> {
                     txtStatus.setText(ResultBuilder.displayVideoResult(code, path, output));
                     progress.dismiss();

@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_demo.*
 import pyxis.uzuki.live.mediaresizer.MediaResizer
 import pyxis.uzuki.live.mediaresizer.ResizeOption
+import pyxis.uzuki.live.mediaresizer.VideoResizeOption
 import pyxis.uzuki.live.mediaresizer.model.MediaType
 import pyxis.uzuki.live.mediaresizer.model.VideoResolutionType
 import pyxis.uzuki.live.richutilskt.utils.*
@@ -50,15 +51,14 @@ class KotlinActivity : AppCompatActivity() {
     }
 
     private fun processImage(path: String) {
-        val file = "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)}/resize/".toFile()
+        val file = "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)}/MediaResizer/".toFile()
         file.mkdirs()
         val imageFile = File(file, "${System.currentTimeMillis().asDateString("yyyy-MM-dd HH:mm:ss")}.jpg")
         val progress = progress("Encoding...")
 
         val option = ResizeOption.Builder()
-                .setActivity(this)
-                .setImageResolution(1280, 720)
                 .setMediaType(MediaType.IMAGE)
+                .setImageResolution(1280, 720)
                 .setTargetPath(path)
                 .setOutputPath(imageFile.absolutePath)
                 .setCallback({ code, output ->
@@ -71,15 +71,18 @@ class KotlinActivity : AppCompatActivity() {
     }
 
     private fun processVideo(path: String) {
-        val file = "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)}/resize/".toFile()
+        val file = "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)}/MediaResizer/".toFile()
         file.mkdirs()
         val imageFile = File(file, "${System.currentTimeMillis().asDateString("yyyy-MM-dd HH:mm:ss")}.mp4")
         val progress = progress("Encoding...")
 
-        val option = ResizeOption.Builder()
-                .setActivity(this)
+        val resizeOption = VideoResizeOption.Builder()
                 .setVideoResolutionType(VideoResolutionType.P480)
+                .build()
+
+        val option = ResizeOption.Builder()
                 .setMediaType(MediaType.VIDEO)
+                .setVideoResizeOption(resizeOption)
                 .setTargetPath(path)
                 .setOutputPath(imageFile.absolutePath)
                 .setCallback({ code, output ->

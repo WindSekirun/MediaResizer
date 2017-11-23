@@ -40,17 +40,19 @@ object MediaResizer {
 
     private fun resizeVideo(option: ResizeOption) {
         val descriptor = getFileDescriptor(option.targetPath)
-        val strategy = if (option.videoResolutionType == VideoResolutionType.P480)
-            P480Strategy(1000 * 1000, 128 * 1000, 1)
+        val resizeOption = option.videoResizeOption
+        val strategy = if (resizeOption.resolutionType == VideoResolutionType.P480)
+            P480Strategy(resizeOption.videoBitrate, resizeOption.audioBitrate, resizeOption.audioChannel)
         else
-            P720Strategy(1000 * 1000, 128 * 1000, 1)
+            P720Strategy(resizeOption.videoBitrate, resizeOption.audioBitrate, resizeOption.audioChannel)
 
         val file = option.outputPath.toFile()
 
         try {
             file.createNewFile()
         } catch (e: IOException) {
-            Log.d(MediaResizer.javaClass.simpleName, "Resizer failed: %s".format(e.message ?: ""))
+            if (BuildConfig.DEBUG)
+                Log.d(MediaResizer.javaClass.simpleName, "Resizer failed: %s".format(e.message ?: ""))
             option.executeCallback(false, option.targetPath)
         }
 
@@ -64,7 +66,8 @@ object MediaResizer {
             }
 
             override fun onTranscodeFailed(exception: Exception?) {
-                Log.d(MediaResizer.javaClass.simpleName, "Resizer failed: %s".format(exception?.message ?: ""))
+                if (BuildConfig.DEBUG)
+                    Log.d(MediaResizer.javaClass.simpleName, "Resizer failed: %s".format(exception?.message ?: ""))
                 option.executeCallback(false, option.targetPath)
             }
 

@@ -119,7 +119,7 @@ object MediaResizer {
 
         imageFile.saveBitmapToFile(newBitmap)
 
-        runDelayed({ option.executeCallback(true, imageFile.absolutePath) }, 500)
+        runDelayed(500) { option.executeCallback(true, imageFile.absolutePath) }
     }
 
     private fun resizeImage(image: Bitmap, maxWidth: Int, maxHeight: Int): Bitmap {

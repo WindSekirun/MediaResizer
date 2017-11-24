@@ -3,7 +3,7 @@
 
 Resizeing image / video with *very small effort* written in **Kotlin**.
 
-Minimum API Level is 18(Android 4.3)
+Minimum API Level is **18(Android 4.3)**
 
 It support... 
 
@@ -31,7 +31,7 @@ allprojects {
 *app/build.gradle*
 ```
 dependencies {
-    implementation 'com.github.WindSekirun:MediaResizer:0.1.0'
+    implementation 'com.github.WindSekirun:MediaResizer:0.3.0'
 }
 ```
 

@@ -10,7 +10,7 @@ import pyxis.uzuki.live.richutilskt.impl.F2
  *
  * Description:
  */
-data class ResizeOption(val mediaType: MediaType, val videoResizeOption: VideoResizeOption,
+data class ResizeOption(val mediaType: MediaType, val videoResizeOption: VideoResizeOption?,
                         val imageResolution: Pair<Int, Int>, val targetPath: String,
                         val outputPath: String, val callback: (Int, String) -> Unit) {
 
@@ -58,6 +58,6 @@ data class ResizeOption(val mediaType: MediaType, val videoResizeOption: VideoRe
         }
 
         fun build(): ResizeOption =
-                ResizeOption(mediaType, videoResizeOption as VideoResizeOption, imageResolution, targetPath, outputPath, callback)
+                ResizeOption(mediaType, videoResizeOption, imageResolution, targetPath, outputPath, callback)
     }
 }

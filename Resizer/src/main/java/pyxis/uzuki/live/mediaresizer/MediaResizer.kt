@@ -45,7 +45,11 @@ object MediaResizer {
     private fun resizeVideo(option: ResizeOption) {
         val descriptor = getFileDescriptor(option.targetPath)
         val resizeOption = option.videoResizeOption
-        val strategy = getTranscodingStrategy(resizeOption)
+        val strategy = if (resizeOption != null) {
+            getTranscodingStrategy(resizeOption)
+        } else {
+            AS720Strategy(1000 * 1000, 128 * 1000, 1)
+        }
 
         val file = option.outputPath.toFile()
 

@@ -28,6 +28,6 @@ repositories {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    implementation 'net.ypresto.androidtranscoder:android-transcoder:0.2.0'
-    implementation 'com.github.WindSekirun:RichUtilsKt:1.8.1'
+    api 'net.ypresto.androidtranscoder:android-transcoder:0.2.0'
+    implementation 'com.github.WindSekirun:RichUtilsKt:2.0.0'
 }

@@ -110,6 +110,10 @@ Video can be resizing when video has 16:9 ratio, see [android-transcoder #40 com
 ```Kotlin
 val resizeOption = VideoResizeOption.Builder()
                 .setVideoResolutionType(VideoResolutionType.AS720)
+                .setVideoBitrate(1000 * 1000)
+                .setAudioBitrate(128 * 1000)
+                .setAudioChannel(1)
+                .setScanRequest(ScanRequest.TRUE)
                 .build()
 
 val option = ResizeOption.Builder()
@@ -131,6 +135,10 @@ MediaResizer.process(option)
 ```Java
 VideoResizeOption resizeOption = new VideoResizeOption.Builder()
                 .setVideoResolutionType(VideoResolutionType.AS720)
+                .setVideoBitrate(1000 * 1000)
+                .setAudioBitrate(128 * 1000)
+                .setAudioChannel(1)
+                .setScanRequest(ScanRequest.TRUE)
                 .build();
 
 ResizeOption option = new ResizeOption.Builder()

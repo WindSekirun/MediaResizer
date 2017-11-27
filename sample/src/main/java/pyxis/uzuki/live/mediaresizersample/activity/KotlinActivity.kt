@@ -108,6 +108,10 @@ class KotlinActivity : AppCompatActivity() {
 
         val resizeOption = VideoResizeOption.Builder()
                 .setVideoResolutionType(type)
+                .setVideoBitrate(1000 * 1000)
+                .setAudioBitrate(128 * 1000)
+                .setAudioChannel(1)
+                .setScanRequest(ScanRequest.TRUE)
                 .build()
 
         val option = ResizeOption.Builder()

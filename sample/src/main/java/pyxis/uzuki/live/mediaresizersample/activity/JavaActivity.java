@@ -145,6 +145,10 @@ public class JavaActivity extends InjectActivity {
 
         VideoResizeOption resizeOption = new VideoResizeOption.Builder()
                 .setVideoResolutionType(type)
+                .setVideoBitrate(1000 * 1000)
+                .setAudioBitrate(128 * 1000)
+                .setAudioChannel(1)
+                .setScanRequest(ScanRequest.TRUE)
                 .build();
 
         ResizeOption option = new ResizeOption.Builder()

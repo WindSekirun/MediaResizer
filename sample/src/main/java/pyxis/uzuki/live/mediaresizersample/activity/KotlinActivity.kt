@@ -1,13 +1,17 @@
 package pyxis.uzuki.live.mediaresizersample.activity
 
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.os.Environment
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_demo.*
 import pyxis.uzuki.live.mediaresizer.MediaResizer
+import pyxis.uzuki.live.mediaresizer.data.ImageResizeOption
 import pyxis.uzuki.live.mediaresizer.data.ResizeOption
 import pyxis.uzuki.live.mediaresizer.data.VideoResizeOption
+import pyxis.uzuki.live.mediaresizer.model.ImageMode
 import pyxis.uzuki.live.mediaresizer.model.MediaType
+import pyxis.uzuki.live.mediaresizer.model.ScanRequest
 import pyxis.uzuki.live.mediaresizer.model.VideoResolutionType
 import pyxis.uzuki.live.mediaresizersample.R
 import pyxis.uzuki.live.mediaresizersample.utils.displayImageResult
@@ -59,9 +63,18 @@ class KotlinActivity : AppCompatActivity() {
         val imageFile = File(file, "${System.currentTimeMillis().asDateString("yyyy-MM-dd HH:mm:ss")}.jpg")
         val progress = progress("Encoding...")
 
+        val resizeOption = ImageResizeOption.Builder()
+                .setImageProcessMode(ImageMode.ResizeAndCompress)
+                .setImageResolution(1280, 720)
+                .setBitmapFilter(false)
+                .setCompressFormat(Bitmap.CompressFormat.JPEG)
+                .setCompressQuality(75)
+                .setScanRequest(ScanRequest.TRUE)
+                .build()
+
         val option = ResizeOption.Builder()
                 .setMediaType(MediaType.IMAGE)
-                .setImageResolution(1280, 720)
+                .setImageResizeOption(resizeOption)
                 .setTargetPath(path)
                 .setOutputPath(imageFile.absolutePath)
                 .setCallback({ code, output ->

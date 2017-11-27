@@ -11,13 +11,13 @@ import pyxis.uzuki.live.richutilskt.impl.F2
  * Description:
  */
 data class ResizeOption(val mediaType: MediaType, val videoResizeOption: VideoResizeOption?,
-                        val imageResolution: Pair<Int, Int>, val targetPath: String,
+                        val imageResizeOption: ImageResizeOption?, val targetPath: String,
                         val outputPath: String, val callback: (Int, String) -> Unit) {
 
     class Builder {
         private var mediaType: MediaType = MediaType.IMAGE
         private var videoResizeOption: VideoResizeOption? = null
-        private var imageResolution: Pair<Int, Int> = 1280 to 720
+        private var imageResizeOption: ImageResizeOption? = null
         private var outputPath: String = ""
         private var targetPath: String = ""
         private var callback: (Int, String) -> Unit = { _, _ -> }
@@ -32,8 +32,8 @@ data class ResizeOption(val mediaType: MediaType, val videoResizeOption: VideoRe
             return this
         }
 
-        fun setImageResolution(width: Int, height: Int): Builder {
-            this.imageResolution = width to height
+        fun setImageResizeOption(imageResizeOption: ImageResizeOption): Builder {
+            this.imageResizeOption = imageResizeOption
             return this
         }
 
@@ -58,6 +58,6 @@ data class ResizeOption(val mediaType: MediaType, val videoResizeOption: VideoRe
         }
 
         fun build(): ResizeOption =
-                ResizeOption(mediaType, videoResizeOption, imageResolution, targetPath, outputPath, callback)
+                ResizeOption(mediaType, videoResizeOption, imageResizeOption, targetPath, outputPath, callback)
     }
 }

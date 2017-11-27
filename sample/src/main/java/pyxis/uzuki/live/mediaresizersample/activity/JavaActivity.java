@@ -1,6 +1,7 @@
 package pyxis.uzuki.live.mediaresizersample.activity;
 
 import android.content.DialogInterface;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -11,9 +12,12 @@ import java.io.File;
 import java.util.Arrays;
 
 import pyxis.uzuki.live.mediaresizer.MediaResizer;
+import pyxis.uzuki.live.mediaresizer.data.ImageResizeOption;
 import pyxis.uzuki.live.mediaresizer.data.ResizeOption;
 import pyxis.uzuki.live.mediaresizer.data.VideoResizeOption;
+import pyxis.uzuki.live.mediaresizer.model.ImageMode;
 import pyxis.uzuki.live.mediaresizer.model.MediaType;
+import pyxis.uzuki.live.mediaresizer.model.ScanRequest;
 import pyxis.uzuki.live.mediaresizer.model.VideoResolutionType;
 import pyxis.uzuki.live.mediaresizersample.R;
 import pyxis.uzuki.live.mediaresizersample.utils.ResultBuilder;
@@ -88,9 +92,18 @@ public class JavaActivity extends InjectActivity {
         File imageFile = new File(file, RichUtils.asDateString(System.currentTimeMillis(), "yyyy-MM-dd HH:mm:ss") + ".jpg");
         DialogInterface progress = RichUtils.progress(this, "Encoding...");
 
+        ImageResizeOption resizeOption = new ImageResizeOption.Builder()
+                .setImageProcessMode(ImageMode.ResizeAndCompress)
+                .setImageResolution(1280, 720)
+                .setBitmapFilter(false)
+                .setCompressFormat(Bitmap.CompressFormat.JPEG)
+                .setCompressQuality(75)
+                .setScanRequest(ScanRequest.TRUE)
+                .build();
+
         ResizeOption option = new ResizeOption.Builder()
                 .setMediaType(MediaType.IMAGE)
-                .setImageResolution(1280, 720)
+                .setImageResizeOption(resizeOption)
                 .setTargetPath(path)
                 .setOutputPath(imageFile.getAbsolutePath())
                 .setCallback((code, output) -> {

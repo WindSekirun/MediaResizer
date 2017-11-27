@@ -35,18 +35,41 @@ dependencies {
 }
 ```
 
+### Initialization
+For use ```.setScanRequest(ScanRequest.TRUE)```, Please add this statement in your Application class.
+
+#### Kotlin
+```Kotlin
+MediaResizerGlobal.initializeApplication(this)
+```
+
+#### Java
+```Java
+MediaResizerGlobal.initializeApplication(this);
+```
+
 ### Resizing Image
 MediaResizer support Image Resizing with keeping Aspect Ratio of picture.
 
 #### [Kotlin](https://github.com/WindSekirun/MediaResizer/blob/master/sample/src/main/java/pyxis/uzuki/live/mediaresizersample/activity/KotlinActivity.kt)
 ```Kotlin
+val resizeOption = ImageResizeOption.Builder()
+                .setImageProcessMode(ImageMode.ResizeAndCompress)
+                .setImageResolution(1280, 720)
+                .setBitmapFilter(false)
+                .setCompressFormat(Bitmap.CompressFormat.JPEG)
+                .setCompressQuality(75)
+                .setScanRequest(ScanRequest.TRUE)
+                .build()
+        
 val option = ResizeOption.Builder()
                 .setMediaType(MediaType.IMAGE)
-                .setImageResolution(1280, 720) // max value of width, height
-                .setTargetPath(path) // SDCard based image path
-                .setOutputPath(imageFile.absolutePath) // Output path
+                .setImageResizeOption(resizeOption)
+                .setTargetPath(path)
+                .setOutputPath(imageFile.absolutePath)
                 .setCallback({ code, output ->
                     txtStatus.text = displayImageResult(code, path, output)
+                    progress.dismiss()
                 })
                 .build()
 
@@ -56,13 +79,23 @@ MediaResizer.process(option)
 #### [Java](https://github.com/WindSekirun/MediaResizer/blob/master/sample/src/main/java/pyxis/uzuki/live/mediaresizersample/activity/JavaActivity.java)
 
 ```Java
+ImageResizeOption resizeOption = new ImageResizeOption.Builder()
+                .setImageProcessMode(ImageMode.ResizeAndCompress)
+                .setImageResolution(1280, 720)
+                .setBitmapFilter(false)
+                .setCompressFormat(Bitmap.CompressFormat.JPEG)
+                .setCompressQuality(75)
+                .setScanRequest(ScanRequest.TRUE)
+                .build();
+
 ResizeOption option = new ResizeOption.Builder()
                 .setMediaType(MediaType.IMAGE)
-                .setImageResolution(1280, 720) // max value of width, height
-                .setTargetPath(path) // SDCard based image path
-                .setOutputPath(imageFile.getAbsolutePath()) // Output path
+                .setImageResizeOption(resizeOption)
+                .setTargetPath(path)
+                .setOutputPath(imageFile.getAbsolutePath())
                 .setCallback((code, output) -> {
                     txtStatus.setText(ResultBuilder.displayImageResult(code, path, output));
+                    progress.dismiss();
                 }).build();
 
 MediaResizer.process(option);

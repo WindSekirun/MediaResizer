@@ -1,6 +1,7 @@
 package pyxis.uzuki.live.mediaresizer.data
 
 import net.ypresto.androidtranscoder.format.MediaFormatStrategy
+import pyxis.uzuki.live.mediaresizer.model.ScanRequest
 import pyxis.uzuki.live.mediaresizer.model.VideoResolutionType
 
 /**
@@ -12,7 +13,8 @@ import pyxis.uzuki.live.mediaresizer.model.VideoResolutionType
  */
 
 data class VideoResizeOption(val resolutionType: VideoResolutionType, val videoBitrate: Int,
-                             val audioBitrate: Int, val audioChannel: Int, val customStrategy: MediaFormatStrategy?) {
+                             val audioBitrate: Int, val audioChannel: Int, val customStrategy: MediaFormatStrategy?,
+                             val request: ScanRequest) {
 
     class Builder {
         private var resolutionType: VideoResolutionType = VideoResolutionType.AS720
@@ -20,6 +22,7 @@ data class VideoResizeOption(val resolutionType: VideoResolutionType, val videoB
         private var audioBitrate: Int = 128 * 1000
         private var audioChannel: Int = 1
         private var customStrategy: MediaFormatStrategy? = null
+        private var request: ScanRequest = ScanRequest.FALSE
 
         fun setVideoResolutionType(resolutionType: VideoResolutionType): Builder {
             this.resolutionType = resolutionType
@@ -46,6 +49,11 @@ data class VideoResizeOption(val resolutionType: VideoResolutionType, val videoB
             return this
         }
 
-        fun build() = VideoResizeOption(resolutionType, videoBitrate, audioBitrate, audioChannel, customStrategy)
+        fun setScanRequest(request: ScanRequest): Builder {
+            this.request = request
+            return this
+        }
+
+        fun build() = VideoResizeOption(resolutionType, videoBitrate, audioBitrate, audioChannel, customStrategy, request)
     }
 }

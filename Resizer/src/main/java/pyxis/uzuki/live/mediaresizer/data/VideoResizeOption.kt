@@ -24,35 +24,24 @@ data class VideoResizeOption(val resolutionType: VideoResolutionType, val videoB
         private var customStrategy: MediaFormatStrategy? = null
         private var request: ScanRequest = ScanRequest.FALSE
 
-        fun setVideoResolutionType(resolutionType: VideoResolutionType): Builder {
-            this.resolutionType = resolutionType
-            return this
-        }
+        fun setVideoResolutionType(resolutionType: VideoResolutionType) = apply { this.resolutionType = resolutionType }
 
-        fun setVideoBitrate(videoBitrate: Int): Builder {
-            this.videoBitrate = videoBitrate
-            return this
-        }
+        fun setVideoBitrate(videoBitrate: Int) = apply { this.videoBitrate = videoBitrate }
 
-        fun setAudioBitrate(audioBitrate: Int): Builder {
-            this.audioBitrate = audioBitrate
-            return this
-        }
+        fun setAudioBitrate(audioBitrate: Int) = apply { this.audioBitrate = audioBitrate }
 
-        fun setAudioChannel(audioChannel: Int): Builder {
-            this.audioChannel = audioChannel
-            return this
-        }
+        fun setAudioChannel(audioChannel: Int) = apply { this.audioChannel = audioChannel }
 
-        fun setCustomStrategy(customStrategy: MediaFormatStrategy): Builder {
-            this.customStrategy = customStrategy
-            return this
-        }
+        fun setCustomStrategy(customStrategy: MediaFormatStrategy) = apply { this.customStrategy = customStrategy }
 
-        fun setScanRequest(request: ScanRequest): Builder {
-            this.request = request
-            return this
-        }
+        /**
+         * set flag for requesting media scanning.
+         * to use this settings, please add follow statement in your Application class.
+         * MediaResizerGlobal.initializeApplication(this)
+         *
+         * @param[request] media scanning flag.
+         */
+        fun setScanRequest(request: ScanRequest) = apply { this.request = request }
 
         fun build() = VideoResizeOption(resolutionType, videoBitrate, audioBitrate, audioChannel, customStrategy, request)
     }

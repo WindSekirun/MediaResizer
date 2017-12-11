@@ -22,42 +22,20 @@ data class ResizeOption(val mediaType: MediaType, val videoResizeOption: VideoRe
         private var targetPath: String = ""
         private var callback: (Int, String) -> Unit = { _, _ -> }
 
-        fun setMediaType(mediaType: MediaType): Builder {
-            this.mediaType = mediaType
-            return this
-        }
+        fun setMediaType(mediaType: MediaType) = apply { this.mediaType = mediaType }
 
-        fun setVideoResizeOption(videoResizeOption: VideoResizeOption): Builder {
-            this.videoResizeOption = videoResizeOption
-            return this
-        }
+        fun setVideoResizeOption(videoResizeOption: VideoResizeOption) = apply { this.videoResizeOption = videoResizeOption }
 
-        fun setImageResizeOption(imageResizeOption: ImageResizeOption): Builder {
-            this.imageResizeOption = imageResizeOption
-            return this
-        }
+        fun setImageResizeOption(imageResizeOption: ImageResizeOption) = apply { this.imageResizeOption = imageResizeOption }
 
-        fun setOutputPath(outputPath: String): Builder {
-            this.outputPath = outputPath
-            return this
-        }
+        fun setOutputPath(outputPath: String) = apply { this.outputPath = outputPath }
 
-        fun setTargetPath(targetPath: String): Builder {
-            this.targetPath = targetPath
-            return this
-        }
+        fun setTargetPath(targetPath: String) = apply { this.targetPath = targetPath }
 
-        fun setCallback(callback: (Int, String) -> Unit): Builder {
-            this.callback = callback
-            return this
-        }
+        fun setCallback(callback: (Int, String) -> Unit) = apply { this.callback = callback }
 
-        fun setCallback(callback: F2<Int, String>): Builder {
-            this.callback = { int, string -> callback.invoke(int, string) }
-            return this
-        }
+        fun setCallback(callback: F2<Int, String>) = apply { this.callback = { int, string -> callback.invoke(int, string) } }
 
-        fun build(): ResizeOption =
-                ResizeOption(mediaType, videoResizeOption, imageResizeOption, targetPath, outputPath, callback)
+        fun build(): ResizeOption = ResizeOption(mediaType, videoResizeOption, imageResizeOption, targetPath, outputPath, callback)
     }
 }

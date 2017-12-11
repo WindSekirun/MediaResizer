@@ -1,8 +1,7 @@
 apply plugin: 'com.android.library'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'org.jetbrains.dokka-android'
 
 android {
     compileSdkVersion 26
@@ -30,4 +29,17 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     api 'net.ypresto.androidtranscoder:android-transcoder:0.2.0'
     implementation 'com.github.WindSekirun:RichUtilsKt:2.0.0'
+}
+
+dokka {
+    moduleName = 'MediaResizer'
+    outputFormat = 'html'
+    outputDirectory = "$projectDir/docs"
+    sourceDirs = files('src/main/java')
+    skipEmptyPackages = true
+    linkMapping {
+        dir = "src/main/java"
+        url = "https://github.com/WindSekirun/MediaResizer/tree/master/Resizer/src/main/java"
+        suffix = "#L"
+    }
 }

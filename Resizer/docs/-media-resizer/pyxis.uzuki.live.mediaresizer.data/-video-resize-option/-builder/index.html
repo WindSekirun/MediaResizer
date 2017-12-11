@@ -1,0 +1,103 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>VideoResizeOption.Builder - MediaResizer</title>
+<link rel="stylesheet" href="..\..\..\..\style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">MediaResizer</a>&nbsp;/&nbsp;<a href="../../index.html">pyxis.uzuki.live.mediaresizer.data</a>&nbsp;/&nbsp;<a href="../index.html">VideoResizeOption</a>&nbsp;/&nbsp;<a href=".">Builder</a><br/>
+<br/>
+<h1>Builder</h1>
+<code><span class="keyword">class </span><span class="identifier">Builder</span></code>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">Builder</span><span class="symbol">(</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="build.html">build</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">build</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../index.html"><span class="identifier">VideoResizeOption</span></a></code>
+<p>Build <a href="../index.html">VideoResizeOption</a> object.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-audio-bitrate.html">setAudioBitrate</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setAudioBitrate</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.mediaresizer.data.VideoResizeOption.Builder$setAudioBitrate(kotlin.Int)/audioBitrate">audioBitrate</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Builder</span></code>
+<p>set desire bitrate of audio
+default is 128 * 1000 (128kbps)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-audio-channel.html">setAudioChannel</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setAudioChannel</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.mediaresizer.data.VideoResizeOption.Builder$setAudioChannel(kotlin.Int)/audioChannel">audioChannel</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Builder</span></code>
+<p>set desire channel of audio
+default is 1, MONO Channel.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-custom-strategy.html">setCustomStrategy</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setCustomStrategy</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.mediaresizer.data.VideoResizeOption.Builder$setCustomStrategy(net.ypresto.androidtranscoder.format.MediaFormatStrategy)/customStrategy">customStrategy</span><span class="symbol">:</span>&nbsp;<span class="identifier">MediaFormatStrategy</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Builder</span></code>
+<p>set custom strategy of <a href="https//github.com/ypresto/android-transcoder">android-transcoder</a>
+MediaResizer contains all of available strategy in <a href="../../../pyxis.uzuki.live.mediaresizer.strategy/index.html">pyxis.uzuki.live.mediaresizer.strategy</a> package,
+but you may need customize transcoding strategy.
+just pass your <a href="#">MediaFormatStrategy</a> class.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-scan-request.html">setScanRequest</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setScanRequest</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.mediaresizer.data.VideoResizeOption.Builder$setScanRequest(pyxis.uzuki.live.mediaresizer.model.ScanRequest)/request">request</span><span class="symbol">:</span>&nbsp;<a href="../../../pyxis.uzuki.live.mediaresizer.model/-scan-request/index.html"><span class="identifier">ScanRequest</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Builder</span></code>
+<p>set flag for requesting media scanning.
+to use this settings, please add follow statement in your Application class.
+MediaResizerGlobal.initializeApplication(this)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-video-bitrate.html">setVideoBitrate</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setVideoBitrate</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.mediaresizer.data.VideoResizeOption.Builder$setVideoBitrate(kotlin.Int)/videoBitrate">videoBitrate</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Builder</span></code>
+<p>set desire bitrate of video
+default is 1000 * 1000 (1000kbps)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-video-resolution-type.html">setVideoResolutionType</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setVideoResolutionType</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.mediaresizer.data.VideoResizeOption.Builder$setVideoResolutionType(pyxis.uzuki.live.mediaresizer.model.VideoResolutionType)/resolutionType">resolutionType</span><span class="symbol">:</span>&nbsp;<a href="../../../pyxis.uzuki.live.mediaresizer.model/-video-resolution-type/index.html"><span class="identifier">VideoResolutionType</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Builder</span></code>
+<p>set resolution to transcode video.
+It have four options to set, default is <a href="../../../pyxis.uzuki.live.mediaresizer.model/-video-resolution-type/-a-s720.html">VideoResolutionType.AS720</a>
+see <a href="../../../pyxis.uzuki.live.mediaresizer.model/-video-resolution-type/index.html">VideoResolutionType</a> to see all of available options.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

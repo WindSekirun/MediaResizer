@@ -1,0 +1,7 @@
+$dokka.format:html
+$dokka.linkExtension:html
+$dokka.location:pyxis.uzuki.live.mediaresizer$saveBitmapToFile(java.io.File, android.graphics.Bitmap, android.graphics.Bitmap.CompressFormat, kotlin.Int)pyxis.uzuki.live.mediaresizer/java.io.-file/save-bitmap-to-file.html
+pyxis.uzuki.live.mediaresizer
+pyxis.uzuki.live.mediaresizer.data
+pyxis.uzuki.live.mediaresizer.model
+pyxis.uzuki.live.mediaresizer.strategy

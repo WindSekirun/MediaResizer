@@ -1,0 +1,100 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>FormatStrategy - MediaResizer</title>
+<link rel="stylesheet" href="..\..\..\style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">MediaResizer</a>&nbsp;/&nbsp;<a href="../index.html">pyxis.uzuki.live.mediaresizer.strategy</a>&nbsp;/&nbsp;<a href=".">FormatStrategy</a><br/>
+<br/>
+<h1>FormatStrategy</h1>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">FormatStrategy</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">MediaFormatStrategy</span></code>
+<p>MediaResizer
+Class: FormatStrategy
+Created by Pyxis on 2017-11-23.</p>
+<p>Description:</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">FormatStrategy</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.mediaresizer.strategy.FormatStrategy$<init>(kotlin.Int, kotlin.Int, kotlin.Int)/videoBitrate">videoBitrate</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;8000 * 1000<span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.mediaresizer.strategy.FormatStrategy$<init>(kotlin.Int, kotlin.Int, kotlin.Int)/audioBitrate">audioBitrate</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;-1<span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.mediaresizer.strategy.FormatStrategy$<init>(kotlin.Int, kotlin.Int, kotlin.Int)/audioChannels">audioChannels</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;-1<span class="symbol">)</span></code>
+<p>MediaResizer
+Class: FormatStrategy
+Created by Pyxis on 2017-11-23.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="create-audio-output-format.html">createAudioOutputFormat</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">createAudioOutputFormat</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.mediaresizer.strategy.FormatStrategy$createAudioOutputFormat(android.media.MediaFormat)/inputFormat">inputFormat</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/media/MediaFormat.html"><span class="identifier">MediaFormat</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/media/MediaFormat.html"><span class="identifier">MediaFormat</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="create-video-output-format.html">createVideoOutputFormat</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">createVideoOutputFormat</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.mediaresizer.strategy.FormatStrategy$createVideoOutputFormat(android.media.MediaFormat)/inputFormat">inputFormat</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/media/MediaFormat.html"><span class="identifier">MediaFormat</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/media/MediaFormat.html"><span class="identifier">MediaFormat</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="get-log-tag.html">getLogTag</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getLogTag</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="get-longer-length.html">getLongerLength</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getLongerLength</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="get-shorter-length.html">getShorterLength</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getShorterLength</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../-a-s480-strategy/index.html">AS480Strategy</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">AS480Strategy</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">FormatStrategy</span></code>
+<p>MediaResizer
+Class: AS480Strategy
+Created by Pyxis on 2017-11-23.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-a-s720-strategy/index.html">AS720Strategy</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">AS720Strategy</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">FormatStrategy</span></code>
+<p>MediaResizer
+Class: AS720Strategy
+Created by Pyxis on 2017-11-23.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

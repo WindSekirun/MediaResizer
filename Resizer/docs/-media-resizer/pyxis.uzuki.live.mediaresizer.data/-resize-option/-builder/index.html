@@ -1,0 +1,101 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ResizeOption.Builder - MediaResizer</title>
+<link rel="stylesheet" href="..\..\..\..\style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">MediaResizer</a>&nbsp;/&nbsp;<a href="../../index.html">pyxis.uzuki.live.mediaresizer.data</a>&nbsp;/&nbsp;<a href="../index.html">ResizeOption</a>&nbsp;/&nbsp;<a href=".">Builder</a><br/>
+<br/>
+<h1>Builder</h1>
+<code><span class="keyword">class </span><span class="identifier">Builder</span></code>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">Builder</span><span class="symbol">(</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="build.html">build</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">build</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../index.html"><span class="identifier">ResizeOption</span></a></code>
+<p>Build <a href="../index.html">ResizeOption</a> object.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-callback.html">setCallback</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setCallback</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.mediaresizer.data.ResizeOption.Builder$setCallback(kotlin.Function2((kotlin.Int, kotlin.String, kotlin.Unit)))/callback">callback</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Builder</span></code>
+<p>set callback for result.
+this methods use higher-order functions. do not use this methods in java, use <a href="set-callback.html">setCallback</a> instead.</p>
+<code><span class="keyword">fun </span><span class="identifier">setCallback</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.mediaresizer.data.ResizeOption.Builder$setCallback(pyxis.uzuki.live.richutilskt.impl.F2((kotlin.Int, kotlin.String)))/callback">callback</span><span class="symbol">:</span>&nbsp;<span class="identifier">F2</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Builder</span></code>
+<p>set callback for result.
+this methods use <a href="#">F2</a> interface. use <a href="set-callback.html">setCallback</a> in Kotlin instead.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-image-resize-option.html">setImageResizeOption</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setImageResizeOption</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.mediaresizer.data.ResizeOption.Builder$setImageResizeOption(pyxis.uzuki.live.mediaresizer.data.ImageResizeOption)/imageResizeOption">imageResizeOption</span><span class="symbol">:</span>&nbsp;<a href="../../-image-resize-option/index.html"><span class="identifier">ImageResizeOption</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Builder</span></code>
+<p>set <a href="../../-image-resize-option/index.html">ImageResizeOption</a> class to resize image.
+set this methods when you use Image Resizing.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-media-type.html">setMediaType</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setMediaType</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.mediaresizer.data.ResizeOption.Builder$setMediaType(pyxis.uzuki.live.mediaresizer.model.MediaType)/mediaType">mediaType</span><span class="symbol">:</span>&nbsp;<a href="../../../pyxis.uzuki.live.mediaresizer.model/-media-type/index.html"><span class="identifier">MediaType</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Builder</span></code>
+<p>set media type to resize
+It have two options to set, default is <a href="../../../pyxis.uzuki.live.mediaresizer.model/-media-type/-i-m-a-g-e.html">MediaType.IMAGE</a>
+see <a href="../../../pyxis.uzuki.live.mediaresizer.model/-media-type/index.html">MediaType</a> class to see all of available options.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-output-path.html">setOutputPath</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setOutputPath</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.mediaresizer.data.ResizeOption.Builder$setOutputPath(kotlin.String)/outputPath">outputPath</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Builder</span></code>
+<p>set output path for output file.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-target-path.html">setTargetPath</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setTargetPath</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.mediaresizer.data.ResizeOption.Builder$setTargetPath(kotlin.String)/targetPath">targetPath</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Builder</span></code>
+<p>set target path for input file.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-video-resize-option.html">setVideoResizeOption</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setVideoResizeOption</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.mediaresizer.data.ResizeOption.Builder$setVideoResizeOption(pyxis.uzuki.live.mediaresizer.data.VideoResizeOption)/videoResizeOption">videoResizeOption</span><span class="symbol">:</span>&nbsp;<a href="../../-video-resize-option/index.html"><span class="identifier">VideoResizeOption</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Builder</span></code>
+<p>set <a href="../../-video-resize-option/index.html">VideoResizeOption</a> class to resize video.
+set this methods when you use Video Resizing.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

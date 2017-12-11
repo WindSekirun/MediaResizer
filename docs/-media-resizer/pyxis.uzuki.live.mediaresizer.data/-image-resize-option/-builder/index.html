@@ -1,0 +1,102 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ImageResizeOption.Builder - MediaResizer</title>
+<link rel="stylesheet" href="..\..\..\..\style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">MediaResizer</a>&nbsp;/&nbsp;<a href="../../index.html">pyxis.uzuki.live.mediaresizer.data</a>&nbsp;/&nbsp;<a href="../index.html">ImageResizeOption</a>&nbsp;/&nbsp;<a href=".">Builder</a><br/>
+<br/>
+<h1>Builder</h1>
+<code><span class="keyword">class </span><span class="identifier">Builder</span></code>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">Builder</span><span class="symbol">(</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="build.html">build</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">build</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../index.html"><span class="identifier">ImageResizeOption</span></a></code>
+<p>Build <a href="../index.html">ImageResizeOption</a> object.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-bitmap-filter.html">setBitmapFilter</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setBitmapFilter</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.mediaresizer.data.ImageResizeOption.Builder$setBitmapFilter(kotlin.Boolean)/filter">filter</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Builder</span></code>
+<p>set filter flag for better quality.
+true if the source should be filtered.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-compress-format.html">setCompressFormat</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setCompressFormat</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.mediaresizer.data.ImageResizeOption.Builder$setCompressFormat(android.graphics.Bitmap.CompressFormat)/format">format</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/graphics/Bitmap/CompressFormat.html"><span class="identifier">CompressFormat</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Builder</span></code>
+<p>set compress format and extension of output of resizing.
+it have three options to set, default is Bitmap.CompressFormat.JPEG
+see <a href="https://developer.android.com/reference/android/graphics/Bitmap/CompressFormat.html">Bitmap.CompressFormat</a> class to see all of available options.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-compress-quality.html">setCompressQuality</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setCompressQuality</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.mediaresizer.data.ImageResizeOption.Builder$setCompressQuality(kotlin.Int)/compressQuality">compressQuality</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Builder</span></code>
+<p>set compress quality of output of resizing.
+range is 0 and 100, else it throw <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-illegal-argument-exception/index.html">IllegalArgumentException</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-image-process-mode.html">setImageProcessMode</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setImageProcessMode</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.mediaresizer.data.ImageResizeOption.Builder$setImageProcessMode(pyxis.uzuki.live.mediaresizer.model.ImageMode)/mode">mode</span><span class="symbol">:</span>&nbsp;<a href="../../../pyxis.uzuki.live.mediaresizer.model/-image-mode/index.html"><span class="identifier">ImageMode</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Builder</span></code>
+<p>set the mode to work with Image Resizing.
+It have three options to set, default is ResizeAndCompress.
+see <a href="../../../pyxis.uzuki.live.mediaresizer.model/-image-mode/index.html">ImageMode</a> class to see all of available options.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-image-resolution.html">setImageResolution</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setImageResolution</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.mediaresizer.data.ImageResizeOption.Builder$setImageResolution(kotlin.Int, kotlin.Int)/width">width</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.mediaresizer.data.ImageResizeOption.Builder$setImageResolution(kotlin.Int, kotlin.Int)/height">height</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Builder</span></code>
+<p>set desire width/height to resize image.
+It keep aspect ratio itself.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-scan-request.html">setScanRequest</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setScanRequest</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.mediaresizer.data.ImageResizeOption.Builder$setScanRequest(pyxis.uzuki.live.mediaresizer.model.ScanRequest)/request">request</span><span class="symbol">:</span>&nbsp;<a href="../../../pyxis.uzuki.live.mediaresizer.model/-scan-request/index.html"><span class="identifier">ScanRequest</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Builder</span></code>
+<p>set flag for requesting media scanning.
+to use this settings, please add follow statement in your Application class.
+MediaResizerGlobal.initializeApplication(this)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

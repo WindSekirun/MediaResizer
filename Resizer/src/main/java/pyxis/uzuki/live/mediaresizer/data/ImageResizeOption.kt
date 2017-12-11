@@ -25,7 +25,7 @@ data class ImageResizeOption(val mode: ImageMode, val imageResolution: Pair<Int,
 
         /**
          * set the mode to work with Image Resizing.
-         * It have three options to setting, default is ResizeAndCompress.
+         * It have three options to set, default is ResizeAndCompress.
          * see [ImageMode] class to see all of available options.
          *
          * @param[mode] desire mode to process
@@ -51,7 +51,7 @@ data class ImageResizeOption(val mode: ImageMode, val imageResolution: Pair<Int,
 
         /**
          * set compress format and extension of output of resizing.
-         * it have three options to setting, default is Bitmap.CompressFormat.JPEG
+         * it have three options to set, default is Bitmap.CompressFormat.JPEG
          * see [Bitmap.CompressFormat] class to see all of available options.
          *
          * @param[format] desire compress format

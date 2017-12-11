@@ -8,6 +8,9 @@ jobs:
       JVM_OPTS: -Xmx3200m
     steps:
       - checkout
+       - run:
+            name: chmod permissions
+            command: chmod +x ./gradlew
       - run :
           name: display directory
           command: ls -la

@@ -51,6 +51,9 @@ MediaResizerGlobal.initializeApplication(this);
 ### Resizing Image
 MediaResizer support Image Resizing with keeping Aspect Ratio of picture.
 
+* [Documentation of ImageResizeOption](https://windsekirun.github.io/MediaResizer/-media-resizer/pyxis.uzuki.live.mediaresizer.data/-image-resize-option/-builder/index.html)
+* [Documentation of ResizeOption](https://windsekirun.github.io/MediaResizer/-media-resizer/pyxis.uzuki.live.mediaresizer.data/-resize-option/-builder/index.html)
+
 #### [Kotlin](https://github.com/WindSekirun/MediaResizer/blob/master/sample/src/main/java/pyxis/uzuki/live/mediaresizersample/activity/KotlinActivity.kt)
 ```Kotlin
 val resizeOption = ImageResizeOption.Builder()
@@ -105,6 +108,9 @@ MediaResizer.process(option);
 MediaResizer support Video Resizing with Hardware-level using [android-transcoder](https://github.com/ypresto/android-transcoder)
 
 Video can be resizing when video has 16:9 ratio, see [android-transcoder #40 comment](https://github.com/ypresto/android-transcoder/issues/40)
+
+* [Documentation of VideoResizeOption](https://windsekirun.github.io/MediaResizer/-media-resizer/pyxis.uzuki.live.mediaresizer.data/-video-resize-option/-builder/index.html)
+* [Documentation of ResizeOption](https://windsekirun.github.io/MediaResizer/-media-resizer/pyxis.uzuki.live.mediaresizer.data/-resize-option/-builder/index.html)
 
 #### [Kotlin](https://github.com/WindSekirun/MediaResizer/blob/master/sample/src/main/java/pyxis/uzuki/live/mediaresizersample/activity/KotlinActivity.kt)
 ```Kotlin

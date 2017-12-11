@@ -27,9 +27,9 @@ internal fun resizeImage(option: ResizeOption) {
     val newBitmap: Bitmap = if (enableResize) {
         val pair = option.imageResizeOption?.imageResolution ?: 1280 to 720
         if (rotated.width < rotated.height) {
-            resizeImage(rotated, pair.second, pair.first)
+            resizeImage(rotated, pair.second, pair.first, option.imageResizeOption?.bitmapFilter ?: true)
         } else {
-            resizeImage(rotated, pair.first, pair.second)
+            resizeImage(rotated, pair.first, pair.second, option.imageResizeOption?.bitmapFilter ?: true)
         }
     } else {
         rotated
@@ -45,7 +45,7 @@ internal fun resizeImage(option: ResizeOption) {
     runDelayed(500) { option.executeCallback(true, imageFile.absolutePath) }
 }
 
-private fun resizeImage(image: Bitmap, maxWidth: Int, maxHeight: Int): Bitmap {
+private fun resizeImage(image: Bitmap, maxWidth: Int, maxHeight: Int, filter: Boolean): Bitmap {
     if (!(maxHeight > 0 && maxWidth > 0)) {
         return image
     }
@@ -64,7 +64,7 @@ private fun resizeImage(image: Bitmap, maxWidth: Int, maxHeight: Int): Bitmap {
         finalHeight = (maxWidth.toFloat() / ratioBitmap).toInt()
     }
 
-    val newImage = Bitmap.createScaledBitmap(image, finalWidth, finalHeight, true)
+    val newImage = Bitmap.createScaledBitmap(image, finalWidth, finalHeight, filter)
     if (!image.isRecycled) {
         image.recycle()
     }

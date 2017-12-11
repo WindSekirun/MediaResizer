@@ -31,7 +31,7 @@ allprojects {
 *app/build.gradle*
 ```
 dependencies {
-    implementation 'com.github.WindSekirun:MediaResizer:0.5.0'
+    implementation 'com.github.WindSekirun:MediaResizer:1.0.0'
 }
 ```
 

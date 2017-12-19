@@ -17,8 +17,6 @@ It support...
 * **100% Java Interop Library**, it can use with Java within Kotlin-plugin integrated project
 
 ### Usages
-**NOT PRODUCTION READY**
-
 *rootProject/build.gradle*
 ```	
 allprojects {

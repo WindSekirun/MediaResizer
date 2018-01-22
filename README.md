@@ -1,5 +1,5 @@
 ## MediaResizer [![](https://jitpack.io/v/WindSekirun/MediaResizer.svg)](https://jitpack.io/#WindSekirun/MediaResizer) [![CircleCI](https://circleci.com/gh/WindSekirun/MediaResizer.svg?style=svg)](https://circleci.com/gh/WindSekirun/MediaResizer)
-[![Kotlin](https://img.shields.io/badge/kotlin-1.2.0-blue.svg)](http://kotlinlang.org)	[![GitHub license](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)](http://www.apache.org/licenses/LICENSE-2.0)
+[![Kotlin](https://img.shields.io/badge/kotlin-1.2.0-blue.svg)](http://kotlinlang.org)	[![GitHub license](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)](http://www.apache.org/licenses/LICENSE-2.0) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-MediaResizer-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/6700)
 
 Resizeing image / video with *very small effort* written in **Kotlin**.
 

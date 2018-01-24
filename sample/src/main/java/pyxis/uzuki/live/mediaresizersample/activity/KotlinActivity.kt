@@ -16,7 +16,6 @@ import pyxis.uzuki.live.mediaresizer.model.VideoResolutionType
 import pyxis.uzuki.live.mediaresizersample.R
 import pyxis.uzuki.live.mediaresizersample.utils.displayImageResult
 import pyxis.uzuki.live.mediaresizersample.utils.displayVideoResult
-import pyxis.uzuki.live.mediaresizersample.utils.toUri
 import pyxis.uzuki.live.richutilskt.utils.*
 import java.io.File
 
@@ -48,12 +47,10 @@ class KotlinActivity : AppCompatActivity() {
             return
         }
 
-        val realPath = path.toUri() getRealPath this
-
         if (type == MediaType.VIDEO) {
-            selectVideoStrategy(realPath)
+            selectVideoStrategy(path)
         } else {
-            processImage(realPath)
+            processImage(path)
         }
     }
 

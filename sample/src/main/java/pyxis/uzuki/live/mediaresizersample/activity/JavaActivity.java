@@ -2,7 +2,6 @@ package pyxis.uzuki.live.mediaresizersample.activity;
 
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.Nullable;
@@ -76,12 +75,10 @@ public class JavaActivity extends InjectActivity {
         if (code == RPickMedia.PICK_FAILED)
             return;
 
-        String realPath = RichUtils.getRealPath(Uri.parse(path), this);
-
         if (type == MediaType.VIDEO) {
-            selectVideoStrategy(realPath);
+            selectVideoStrategy(path);
         } else {
-            processImage(realPath);
+            processImage(path);
         }
     }
 

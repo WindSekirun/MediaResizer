@@ -26,9 +26,9 @@ repositories {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    api "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     api 'net.ypresto.androidtranscoder:android-transcoder:0.2.0'
-    implementation 'com.github.WindSekirun:RichUtilsKt:2.0.0'
+    api 'com.github.WindSekirun:RichUtilsKt:2.0.6'
 }
 
 dokka {

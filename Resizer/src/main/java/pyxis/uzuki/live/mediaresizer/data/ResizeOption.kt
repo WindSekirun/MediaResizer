@@ -37,7 +37,7 @@ data class ResizeOption(val mediaType: MediaType, val videoResizeOption: VideoRe
          *
          * @param[videoResizeOption] [VideoResizeOption] object.
          */
-        fun setVideoResizeOption(videoResizeOption: VideoResizeOption) = apply { this.videoResizeOption = videoResizeOption }
+        fun setVideoResizeOption(videoResizeOption: VideoResizeOption?) = apply { this.videoResizeOption = videoResizeOption }
 
         /**
          * set [ImageResizeOption] class to resize image.
@@ -45,7 +45,7 @@ data class ResizeOption(val mediaType: MediaType, val videoResizeOption: VideoRe
          *
          * @param[imageResizeOption] [ImageResizeOption] object.
          */
-        fun setImageResizeOption(imageResizeOption: ImageResizeOption) = apply { this.imageResizeOption = imageResizeOption }
+        fun setImageResizeOption(imageResizeOption: ImageResizeOption?) = apply { this.imageResizeOption = imageResizeOption }
 
         /**
          * set output path for output file.

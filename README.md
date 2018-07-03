@@ -44,6 +44,7 @@ MediaResizerGlobal.initializeApplication(this)
 #### Java
 ```Java
 MediaResizerGlobal.initializeApplication(this);
+MediaResizerGlobal.INSTANCE.initializeApplication(this); // use this statement in 1.0.0
 ```
 
 ### Resizing Image

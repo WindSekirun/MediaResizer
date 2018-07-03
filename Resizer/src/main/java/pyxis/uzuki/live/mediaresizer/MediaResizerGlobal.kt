@@ -7,6 +7,7 @@ import android.content.Context
 object MediaResizerGlobal {
     internal var context: Context? = null
 
+    @JvmStatic
     fun initializeApplication(context: Context) {
         MediaResizerGlobal.context = context
     }

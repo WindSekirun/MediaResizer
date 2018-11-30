@@ -2,6 +2,8 @@ package pyxis.uzuki.live.mediaresizer.processor
 
 import android.graphics.Bitmap
 import pyxis.uzuki.live.mediaresizer.MediaResizer
+import pyxis.uzuki.live.mediaresizer.MediaResizer.RESIZE_FAILED
+import pyxis.uzuki.live.mediaresizer.MediaResizer.RESIZE_SUCCESS
 import pyxis.uzuki.live.mediaresizer.MediaResizer.executeCallback
 import pyxis.uzuki.live.mediaresizer.data.ResizeOption
 import pyxis.uzuki.live.mediaresizer.model.ImageMode
@@ -25,9 +27,9 @@ internal fun resizeImage(option: ResizeOption) {
 }
 
 internal fun resizeImageSynchronously(option: ResizeOption): Pair<Int, String> {
-    return resizeImageInternally(option).let { (isSuccess, imagePath) ->
-        Pair(if (isSuccess) MediaResizer.RESIZE_SUCCESS else MediaResizer.RESIZE_FAILED, imagePath)
-    }
+    val result = resizeImageInternally(option)
+    val flag = if (result.first) RESIZE_SUCCESS else RESIZE_FAILED
+    return flag to result.second
 }
 
 internal fun resizeImageInternally(option: ResizeOption): Pair<Boolean, String> {
@@ -39,12 +41,11 @@ internal fun resizeImageInternally(option: ResizeOption): Pair<Boolean, String> 
 
     val newBitmap: Bitmap = if (enableResize) {
         val pair = option.imageResizeOption?.imageResolution ?: 1280 to 720
+        val filter = option.imageResizeOption?.bitmapFilter ?: true
         if (rotated.width < rotated.height) {
-            resizeBitmap(rotated, pair.second, pair.first, option.imageResizeOption?.bitmapFilter
-                    ?: true)
+            resizeBitmap(rotated, pair.second, pair.first, filter)
         } else {
-            resizeBitmap(rotated, pair.first, pair.second, option.imageResizeOption?.bitmapFilter
-                    ?: true)
+            resizeBitmap(rotated, pair.first, pair.second, filter)
         }
     } else {
         rotated

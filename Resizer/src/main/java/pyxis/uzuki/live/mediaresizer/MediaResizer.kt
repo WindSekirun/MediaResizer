@@ -3,6 +3,7 @@ package pyxis.uzuki.live.mediaresizer
 import pyxis.uzuki.live.mediaresizer.data.ResizeOption
 import pyxis.uzuki.live.mediaresizer.model.MediaType
 import pyxis.uzuki.live.mediaresizer.processor.resizeImage
+import pyxis.uzuki.live.mediaresizer.processor.resizeImageSynchronously
 import pyxis.uzuki.live.mediaresizer.processor.resizeVideo
 import pyxis.uzuki.live.richutilskt.utils.runOnUiThread
 
@@ -22,6 +23,14 @@ object MediaResizer {
         when (option.mediaType) {
             MediaType.IMAGE -> resizeImage(option)
             MediaType.VIDEO -> resizeVideo(option)
+        }
+    }
+
+    @JvmStatic
+    fun processSynchronously(option: ResizeOption): Pair<Int, String> {
+        return when (option.mediaType) {
+            MediaType.IMAGE -> resizeImageSynchronously(option)
+            MediaType.VIDEO -> throw NotImplementedError()
         }
     }
 

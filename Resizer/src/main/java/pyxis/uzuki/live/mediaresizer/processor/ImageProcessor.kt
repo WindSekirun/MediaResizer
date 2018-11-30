@@ -1,6 +1,9 @@
 package pyxis.uzuki.live.mediaresizer.processor
 
 import android.graphics.Bitmap
+import pyxis.uzuki.live.mediaresizer.MediaResizer
+import pyxis.uzuki.live.mediaresizer.MediaResizer.RESIZE_FAILED
+import pyxis.uzuki.live.mediaresizer.MediaResizer.RESIZE_SUCCESS
 import pyxis.uzuki.live.mediaresizer.MediaResizer.executeCallback
 import pyxis.uzuki.live.mediaresizer.data.ResizeOption
 import pyxis.uzuki.live.mediaresizer.model.ImageMode
@@ -18,6 +21,18 @@ import pyxis.uzuki.live.richutilskt.utils.*
  */
 
 internal fun resizeImage(option: ResizeOption) {
+    resizeImageInternally(option).also { (isSuccess, imagePath) ->
+        option.executeCallback(isSuccess, imagePath)
+    }
+}
+
+internal fun resizeImageSynchronously(option: ResizeOption): Pair<Int, String> {
+    val result = resizeImageInternally(option)
+    val flag = if (result.first) RESIZE_SUCCESS else RESIZE_FAILED
+    return flag to result.second
+}
+
+internal fun resizeImageInternally(option: ResizeOption): Pair<Boolean, String> {
     val bitmap = option.targetPath.getBitmap() as Bitmap
     val degree = getPhotoOrientationDegree(option.targetPath)
     val rotated = rotate(bitmap, degree)
@@ -26,12 +41,11 @@ internal fun resizeImage(option: ResizeOption) {
 
     val newBitmap: Bitmap = if (enableResize) {
         val pair = option.imageResizeOption?.imageResolution ?: 1280 to 720
+        val filter = option.imageResizeOption?.bitmapFilter ?: true
         if (rotated.width < rotated.height) {
-            resizeImage(rotated, pair.second, pair.first, option.imageResizeOption?.bitmapFilter
-                    ?: true)
+            resizeBitmap(rotated, pair.second, pair.first, filter)
         } else {
-            resizeImage(rotated, pair.first, pair.second, option.imageResizeOption?.bitmapFilter
-                    ?: true)
+            resizeBitmap(rotated, pair.first, pair.second, filter)
         }
     } else {
         rotated
@@ -44,11 +58,10 @@ internal fun resizeImage(option: ResizeOption) {
     if (option.imageResizeOption?.request ?: ScanRequest.FALSE == ScanRequest.TRUE) {
         useGlobalContext { requestMediaScanner(imageFile.absolutePath) }
     }
-
-    runDelayed(500) { option.executeCallback(true, imageFile.absolutePath) }
+    return true to imageFile.absolutePath
 }
 
-private fun resizeImage(image: Bitmap, maxWidth: Int, maxHeight: Int, filter: Boolean): Bitmap {
+private fun resizeBitmap(image: Bitmap, maxWidth: Int, maxHeight: Int, filter: Boolean): Bitmap {
     if (!(maxHeight > 0 && maxWidth > 0)) {
         return image
     }

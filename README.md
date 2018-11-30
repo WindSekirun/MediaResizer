@@ -29,7 +29,7 @@ allprojects {
 *app/build.gradle*
 ```
 dependencies {
-    implementation 'com.github.WindSekirun:MediaResizer:1.0.2'
+    implementation 'com.github.WindSekirun:MediaResizer:1.1.0'
 }
 ```
 
@@ -50,6 +50,8 @@ MediaResizerGlobal.INSTANCE.initializeApplication(this); // use this statement i
 ### Resizing Image
 MediaResizer support Image Resizing with keeping Aspect Ratio of picture.
 
+from 1.1.0, MediaResizer support 'resizing image by synchronous'. To use, use ```MediaResizer.processSynchronously``` instead ```MediaResizer.process```. (Thanks to @zeallat )
+
 * [Documentation of ImageResizeOption](https://windsekirun.github.io/MediaResizer/-media-resizer/pyxis.uzuki.live.mediaresizer.data/-image-resize-option/-builder/index.html)
 * [Documentation of ResizeOption](https://windsekirun.github.io/MediaResizer/-media-resizer/pyxis.uzuki.live.mediaresizer.data/-resize-option/-builder/index.html)
 
@@ -69,7 +71,7 @@ val option = ResizeOption.Builder()
                 .setImageResizeOption(resizeOption)
                 .setTargetPath(path)
                 .setOutputPath(imageFile.absolutePath)
-                .setCallback({ code, output ->
+                .setCallback({ code, output ->  // doesn't require when using ```processSynchronously```
                     txtStatus.text = displayImageResult(code, path, output)
                     progress.dismiss()
                 })

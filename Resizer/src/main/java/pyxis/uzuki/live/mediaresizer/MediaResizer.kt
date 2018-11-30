@@ -30,7 +30,7 @@ object MediaResizer {
     fun processSynchronously(option: ResizeOption): Pair<Int, String> {
         return when (option.mediaType) {
             MediaType.IMAGE -> resizeImageSynchronously(option)
-            MediaType.VIDEO -> throw NotImplementedError()
+            MediaType.VIDEO -> throw NotImplementedError("Currently resizing video by synchronous is not supported.")
         }
     }
 

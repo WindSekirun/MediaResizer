@@ -21,6 +21,11 @@ pipeline {
         }
       }
     }
+    stage('permission') {
+      steps {
+        sh 'chmod 777 gradlew'
+      }
+    }
     stage('assembleDebug') {
       steps {
         sh './gradlew --no-daemon assembleDebug --stacktrace'
@@ -33,5 +38,6 @@ pipeline {
     }
   }
   environment {
-    GOOGLE_SERVICES_JSON = ''  }
+    GOOGLE_SERVICES_JSON = ''
+  }
 }

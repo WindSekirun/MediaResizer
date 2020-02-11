@@ -33,7 +33,7 @@ internal fun resizeImageSynchronously(option: ResizeOption): Pair<Int, String> {
 }
 
 internal fun resizeImageInternally(option: ResizeOption): Pair<Boolean, String> {
-    val bitmap = option.targetPath.getBitmap() as Bitmap
+    val bitmap = option.targetPath.getBitmap() ?: return false to ""
     val degree = getPhotoOrientationDegree(option.targetPath)
     val rotated = rotate(bitmap, degree)
     val imageFile = option.outputPath.toFile()
